@@ -12,10 +12,10 @@ public class HttpListener {
     }
 
     public APIGatewayV2HTTPResponse onHTTPRequest(APIGatewayV2HTTPEvent event) {
-        System.out.println(event.getHeaders());
-        System.out.println(event.getRawPath());
-        System.out.println(event.getHeaders());
-        System.out.println(event.getBody());
+        System.out.printf("method: %s \n",event.getRequestContext().getHttp().getMethod());
+        System.out.printf("headers: %s \n",event.getHeaders());
+        System.out.printf("raw path: %s \n",event.getRawPath());
+        System.out.printf("body: %s \n",event.getBody());
 
         return APIGatewayV2HTTPResponse.builder()
                 .withStatusCode(200)
